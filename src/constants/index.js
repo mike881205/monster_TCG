@@ -5390,7 +5390,11 @@ const Constants = {
 };
 
 Constants.Monsters.forEach((monster, i) => {
-    monster.image = Images[i];
+    const name = monster.name;
+    const filter = Images.filter(img => {
+        return img.includes(name.toLowerCase());
+    });
+    monster.image = filter[0];
 })
 
 export default Constants;
